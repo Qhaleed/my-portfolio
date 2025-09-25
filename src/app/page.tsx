@@ -1,14 +1,42 @@
+"use client";
 import Image from "next/image";
 import Card from "./components/Card";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { useEffect, useState } from "react";
+
 export default function Home() {
+  const [isWiggling, setIsWiggling] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  useEffect(() => {
+    setIsWiggling(true);
+
+    const wiggleInterval = setInterval(() => {
+      setIsWiggling(true);
+      setTimeout(() => setIsWiggling(false), 600);
+    }, 15000);
+
+    const initialTimeout = setTimeout(() => setIsWiggling(false), 600);
+
+    return () => {
+      clearInterval(wiggleInterval);
+      clearTimeout(initialTimeout);
+    };
+  }, []);
+
+  const handleCardClick = () => {
+    setIsLoading(true);
+  };
+
   return (
-    <main className="w-full min-h-screen flex justify-center px-4 sm:px-6 lg:px-8">
+    <main className="w-full max-h-screen flex justify-center px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-4xl text-center flex justify-start flex-col">
-        <Navbar />
         <div className="mt-20 sm:mt-10">
-          <h1 className="text-7xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2 text-gray-700">
+          <h1
+            className={`text-7xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2 text-gray-700 transition-transform duration-100 ${
+              isWiggling ? "animate-wiggle" : ""
+            }`}
+          >
             Res
           </h1>
           <p className="text-xs sm:text-sm mb-4 sm:mb-5 text-gray-600">
