@@ -1,7 +1,5 @@
 "use client";
-import Image from "next/image";
 import Card from "./components/Card";
-import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
 
@@ -43,7 +41,7 @@ export default function Home() {
             (Rescoderer)
           </p>
 
-          <button className="bg-gray-100 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full border-1 border-gray-300 text-sm sm:text-base">
+          <button className="bg-gray-100 text-gray-500 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full border-1 border-gray-300 text-sm sm:text-base">
             Software Engineer
           </button>
         </div>

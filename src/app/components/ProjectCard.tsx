@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function () {
   return (
     <div className="w-full h-full px-10 py-5 bg-white border shadow-lg  border-gray-300 rounded-3xl">
@@ -9,8 +11,12 @@ export default function () {
         <h1 className="text-lg text-gray-700 font-thin">
           See some of my website experiments I've been working on my spare time
         </h1>
-
-        <button className="w-xs text-blue-500 text-start"> Check it out</button>
+        <Link href={"https://github.com/Qhaleed?tab=repositories"}>
+          <button className="w-xs text-blue-500 text-start hover:cursor-pointer hover:text-blue-300 transition duration-200">
+            {" "}
+            Check it out
+          </button>
+        </Link>
       </div>
     </div>
   );
