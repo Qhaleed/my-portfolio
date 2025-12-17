@@ -73,21 +73,13 @@ export default function ({ label, rotate, href, src, darkSrc }: CardProps) {
     >
       <div className="flex flex-col h-auto min-h-48 sm:min-h-56 md:min-h-64 lg:min-h-80 px-2 sm:px-3 lg:px-6 py-3 sm:py-4 lg:py-6 justify-between items-center">
         <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-52 lg:h-52 mb-2 sm:mb-4">
-          <div
-            className={`absolute inset-0 rounded-lg transition-all duration-300 ${
-              isDark
-                ? "ring-2 ring-red-800/30 ring-offset-2 ring-offset-gray-900"
-                : ""
-            }`}
-          >
-            <Image
-              src={`/assets/${displaySrc}`}
-              alt="Profile picture"
-              fill
-              sizes="(max-width: 640px) 112px, (max-width: 768px) 128px, (max-width: 1024px) 160px, 208px"
-              className="rounded-lg object-cover"
-            />
-          </div>
+          <Image
+            src={`/assets/${displaySrc}`}
+            alt="Profile picture"
+            fill
+            sizes="(max-width: 640px) 112px, (max-width: 768px) 128px, (max-width: 1024px) 160px, 208px"
+            className="rounded-lg object-cover"
+          />
         </div>
 
         <Link href={href ? `/${href}` : "/"} className="w-full">

@@ -1,5 +1,5 @@
 "use client";
-import { Card, Footer } from "./components";
+import { Card, Footer, DynamicText } from "./components";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <main className="w-full max-h-screen flex justify-center px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-4xl text-center flex justify-start flex-col">
+      <div className="w-full max-w-4xl text-center flex justify-start flex-col gap-5">
         <div className="mt-20 sm:mt-10">
           <h1
             className={`text-7xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2 text-gray-700 dark:text-gray-200 transition-transform duration-100 ${
@@ -39,19 +39,15 @@ export default function Home() {
           <p className="text-xs sm:text-sm mb-4 sm:mb-5 text-gray-600 dark:text-gray-400">
             (Rescoderer)
           </p>
-
-          <button className="bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-300 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full border-1 border-gray-300 dark:border-gray-600 text-sm sm:text-base">
-            Software Engineer
-          </button>
         </div>
 
-        <div className="flex flex-row gap-10 sm:gap-4 lg:gap-6 mt-12 sm:mt-16 lg:mt-20 justify-center items-center">
+        <div className="flex flex-row gap-10 sm:gap-4 lg:gap-6 mt-12 sm:mt-16 lg:mt-10 lg:mb-10 justify-center items-center">
           <Card
             label="About-Me"
             rotate="left"
             href="about"
             src="white-res.png"
-            darkSrc="redd-res.png"
+            darkSrc="redd-black-res.png"
           ></Card>
           <Card
             label="Projescts"
@@ -60,6 +56,18 @@ export default function Home() {
             src="LOGO-1.jpg"
           ></Card>
         </div>
+
+        <DynamicText
+          label="I Developed"
+          words={[
+            "",
+            "SnakesMapping Philippines",
+            "Adzu Chat (Anonymous Chat for Ateneo)",
+            "University Systems",
+            "Point of Sale Systems",
+            "",
+          ]}
+        />
         <Footer></Footer>
       </div>
     </main>
