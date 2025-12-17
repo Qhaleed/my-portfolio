@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <main className="w-full max-h-screen flex justify-center px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-4xl text-center flex justify-start flex-col gap-5">
-        <div className="mt-20 sm:mt-5">
+        <div className="mt-24 sm:mt-20">
           <h1
             className={`text-7xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2 text-gray-700 dark:text-gray-200 transition-transform duration-100 ${
               isWiggling ? "animate-wiggle" : ""

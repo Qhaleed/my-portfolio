@@ -7,7 +7,10 @@ export default function () {
 
       <div className="text-black dark:text-gray-300 flex justify-center mt-3 sm:mt-4 lg:mt-5">
         <h3 className="text-sm sm:text-base lg:text-lg">
-          @ 2025 Resly Kadiri.
+          @ 2025 Resly Kadiri.{" "}
+          <span className="text-sm text-gray-400">
+            --this portfolio is best on mobile
+          </span>
         </h3>
       </div>
     </footer>

@@ -2,87 +2,143 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import "./navbar.css";
 
-export default function () {
+export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+
+  const navItems = [
+    { href: "/", icon: "fa-solid fa-house", label: "Home" },
+    { href: "/project", icon: "fa-solid fa-layer-group", label: "Projects" },
+    { href: "/about", icon: "fa-solid fa-user", label: "About" },
+  ];
 
   const getIcon = () => {
-    switch (pathname) {
-      case "/":
-        return "fa-solid fa-house";
-      case "/project":
-        return "fa-solid fa-layer-group";
-      case "/about":
-        return "fa-solid fa-user";
-      default:
-        return "fa-solid fa-house";
-    }
+    const current = navItems.find((item) => item.href === pathname);
+    return current?.icon || "fa-solid fa-house";
   };
 
   const toggleNavigation = () => {
-    setIsNavVisible(!isNavVisible);
+    if (isNavVisible) {
+      setIsClosing(true);
+      setTimeout(() => {
+        setIsNavVisible(false);
+        setIsClosing(false);
+      }, 200);
+    } else {
+      setIsNavVisible(true);
+    }
   };
 
   const handleNavigation = (href: string) => {
     if (pathname === href) {
-      setIsNavVisible(false);
+      toggleNavigation();
       return;
     }
 
     setIsLoading(true);
-    setIsNavVisible(false);
+    setIsClosing(true);
 
-    // Wait for loading animation to complete before routing
+    setTimeout(() => {
+      setIsNavVisible(false);
+      setIsClosing(false);
+    }, 200);
+
     setTimeout(() => {
       router.push(href);
       setIsLoading(false);
-    }, 1000); // 1 second loading animation
+    }, 800);
   };
 
+  // Close nav when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      const nav = document.getElementById("glass-nav");
+      if (nav && !nav.contains(e.target as Node) && isNavVisible) {
+        toggleNavigation();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isNavVisible]);
+
   return (
-    <nav className="mt-3 sm:mt-5 w-full flex justify-center">
+    <nav
+      id="glass-nav"
+      className="fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50"
+    >
       <div className="relative flex flex-col items-center">
+        {/* Main toggle button with glass effect */}
         <button
           onClick={toggleNavigation}
-          className="rounded-full bg-gray-200 w-10 h-10 sm:w-12 sm:h-12 border border-gray-300 hover:bg-gray-300 transition-colors duration-200 flex items-center justify-center"
+          className={`
+            nav-button-glass
+            relative overflow-hidden
+            rounded-full w-11 h-11 sm:w-12 sm:h-12
+            flex items-center justify-center
+            transition-all duration-300 ease-out
+            ${isNavVisible ? "nav-button-active" : ""}
+            ${isLoading ? "nav-button-loading" : ""}
+          `}
+          aria-label="Toggle navigation"
         >
+          {/* Glass shine overlay */}
+          <div className="nav-shine"></div>
+
           {isLoading ? (
-            <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-gray-400 border-t-gray-700 rounded-full animate-spin"></div>
+            <div className="nav-spinner"></div>
           ) : (
-            <i className={`${getIcon()} text-black text-sm sm:text-base`}></i>
+            <i
+              className={`${getIcon()} nav-icon transition-all duration-300 ${
+                isNavVisible ? "rotate-180 scale-110" : ""
+              }`}
+            ></i>
           )}
         </button>
 
+        {/* Navigation dropdown with glass effect */}
         {isNavVisible && (
-          <div className="absolute top-full mt-3 flex flex-row bg-gray-100 rounded-full px-3 py-2 gap-4 border border-gray-300 animate-fade-in shadow-lg z-50">
-            <button
-              className={`p-2 rounded-full transition-colors duration-200 ${
-                pathname === "/" ? "bg-gray-300" : "hover:bg-gray-200"
-              }`}
-              onClick={() => handleNavigation("/")}
-            >
-              <i className="fa-solid fa-house text-gray-700 text-sm"></i>
-            </button>
-            <button
-              className={`p-2 rounded-full transition-colors duration-200 ${
-                pathname === "/project" ? "bg-gray-300" : "hover:bg-gray-200"
-              }`}
-              onClick={() => handleNavigation("/project")}
-            >
-              <i className="fa-solid fa-layer-group text-gray-700 text-sm"></i>
-            </button>
-            <button
-              className={`p-2 rounded-full transition-colors duration-200 ${
-                pathname === "/about" ? "bg-gray-300" : "hover:bg-gray-200"
-              }`}
-              onClick={() => handleNavigation("/about")}
-            >
-              <i className="fa-solid fa-user text-gray-700 text-sm"></i>
-            </button>
+          <div
+            className={`
+              nav-dropdown-glass
+              absolute top-full mt-3
+              flex flex-row items-center
+              rounded-full px-4 py-2 sm:px-5 sm:py-2.5
+              gap-3 sm:gap-4
+              z-50
+              ${isClosing ? "nav-closing" : "nav-opening"}
+            `}
+          >
+            {/* Glass shine overlay for dropdown */}
+            <div className="nav-dropdown-shine"></div>
+
+            {navItems.map((item, index) => (
+              <div key={item.href} className="nav-tooltip-wrapper">
+                <button
+                  className={`
+                    nav-item-glass
+                    relative overflow-hidden
+                    p-3 sm:p-3.5 rounded-full
+                    transition-all duration-300 ease-out
+                    ${pathname === item.href ? "nav-item-active" : ""}
+                  `}
+                  onClick={() => handleNavigation(item.href)}
+                  style={{ animationDelay: `${index * 50}ms` }}
+                  aria-label={item.label}
+                >
+                  <i
+                    className={`${item.icon} nav-item-icon transition-transform duration-200`}
+                  ></i>
+                </button>
+                <span className="nav-tooltip">{item.label}</span>
+              </div>
+            ))}
           </div>
         )}
       </div>
