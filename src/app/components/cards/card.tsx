@@ -34,7 +34,7 @@ export default function ({ label, rotate, href, src }: CardProps) {
             alt="Profile picture"
             fill
             sizes="(max-width: 640px) 112px, (max-width: 768px) 128px, (max-width: 1024px) 160px, 208px"
-            className="rounded-full object-cover"
+            className="rounded object-cover"
           />
         </div>
 

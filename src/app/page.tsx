@@ -1,6 +1,5 @@
 "use client";
-import Card from "./components/Card";
-import Footer from "./components/Footer";
+import { Card, Footer } from "./components";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -51,10 +50,10 @@ export default function Home() {
             label="About-Me"
             rotate="left"
             href="about"
-            src="Mini.png"
+            src="white-res.png"
           ></Card>
           <Card
-            label="Projects"
+            label="Projescts"
             rotate="right"
             href="project"
             src="LOGO-1.jpg"

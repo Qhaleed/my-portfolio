@@ -4,6 +4,7 @@ import { useState } from "react";
 type CardProps = {
   title: string;
   date: string;
+  description: string;
   image: string;
   tags?: (
     | "javascript"
@@ -36,7 +37,7 @@ type CardProps = {
   )[];
 };
 
-export default function ({ title, date, image, tags }: CardProps) {
+export default function ({ title, date, image, tags, description }: CardProps) {
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   const openFullscreen = () => {
@@ -81,32 +82,6 @@ export default function ({ title, date, image, tags }: CardProps) {
   };
 
   return (
-    // <div classNameName="flex flex-col text-sm justify-between px-3 py-3 rounded-xl w-full border border-gray-200 hover:border-violet-500 transition duration-300 h-full">
-    //   <div classNameName="bg-red-900 align-middle">
-    //     <Image src={`${image}`} alt="alt image" width={50} height={50}></Image>
-    //   </div>
-
-    //   <div classNameName="flex flex-row justify-between text-sm">
-    //     <p classNameName="">{`${title}`}</p>
-    //   </div>
-    //   <div>
-    //     <div classNameName="flex flex-wrap gap-1 mb-2"></div>
-    //     <h3>{`${date}`}</h3>
-    //   </div>
-    //   <div classNameName="flex flex-wrap gap-1 mb-2">
-    //     {tags &&
-    //       tags.map((tag, index) => (
-    //         <span
-    //           key={index}
-    //           classNameName={`text-xs font-medium px-2.5 py-0.5 rounded-sm ${getTagColors(
-    //             tag
-    //           )}`}
-    //         >
-    //           {tag}
-    //         </span>
-    //       ))}
-    //   </div>
-    // </div>
     <>
       <div className="w-full rounded-2xl overflow-hidden bg-white border border-gray-200 shadow-sm hover:shadow-md transition duration-300 hover:border-green-500">
         <div
@@ -129,6 +104,9 @@ export default function ({ title, date, image, tags }: CardProps) {
             <h5 className="mb-2 text-xs font-normal text-gray-600">
               {`${date}`}
             </h5>
+            <h5 className="mb-2 text-xs font-normal text-gray-600">
+              {`${description}`}
+            </h5>
           </a>
           <div className="flex flex-wrap gap-1">
             {tags &&
@@ -149,20 +127,20 @@ export default function ({ title, date, image, tags }: CardProps) {
       {/* Fullscreen Modal */}
       {isFullscreen && (
         <div
-          className="fixed inset-0 bg-black/50 bg-opacity-90 flex items-center justify-center z-50 px-40"
+          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-2 sm:p-4 md:p-8 lg:px-20"
           onClick={closeFullscreen}
         >
-          <div className="relative max-w-full max-h-full">
+          <div className="relative w-full h-full max-w-full max-h-full flex items-center justify-center">
             <button
               onClick={closeFullscreen}
-              className="absolute top-4 right-4 text-white hover:text-gray-300 text-2xl z-10 bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center transition-colors duration-200"
+              className="absolute top-2 right-2 sm:top-4 sm:right-4 text-white hover:text-gray-300 text-xl sm:text-2xl z-10 bg-black bg-opacity-50 rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center transition-colors duration-200"
             >
               ×
             </button>
             <img
               src={`${image}`}
               alt={title}
-              className="max-w-full max-h-full object-contain rounded-lg"
+              className="w-full h-full max-w-full max-h-full object-contain rounded-lg"
               onClick={(e) => e.stopPropagation()}
             />
           </div>

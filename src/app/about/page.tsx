@@ -1,5 +1,5 @@
 "use client";
-import Socials from "../components/Socials";
+import { Socials, Skill, Footer } from "../components";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -16,7 +16,7 @@ export default function About() {
     }
   };
   return (
-    <main className="w-full h-screen max-h-screen">
+    <main className="w-full h-full max-h-screen">
       <div className="flex flex-row text-center justify-center align-middle mt-15 px-10 lg:p-0">
         <div className="max-w-2xl text-start gap-5 flex flex-col">
           <h1 className="text-3xl font-bold leading-loose">Hi, I'm Res</h1>
@@ -32,7 +32,7 @@ export default function About() {
             and other relevant stuffs in my Obsidian Vault. Yes everything.
           </p>
 
-          <p className="text-gray-600 font-light">
+          <p className="text-gray-600 font-light mb-10">
             Reach me on:{" "}
             <span
               onClick={copyToClipboard}
@@ -48,8 +48,7 @@ export default function About() {
             </span>
           </p>
 
-          <Socials></Socials>
-          <h1 className="text-xl font-semibold leading-loose">
+          <h1 className="text-xl font-semibold leading-loose ">
             Languages/tools I take interest In
           </h1>
           <p className="text-gray-600 font-light">
@@ -59,6 +58,11 @@ export default function About() {
             langauges; most times out of curiosity and other times its either
             school or work(agency).
           </p>
+          <h1 className="text-xl font-semibold leading-loose">
+            Skills and Technologies
+          </h1>
+          <Skill />
+
           <Link href={"/"}>
             <button
               className="w-full text-white bg-gradient-to-r
@@ -67,6 +71,7 @@ export default function About() {
               Go back home
             </button>
           </Link>
+          <Footer />
         </div>
       </div>
     </main>

@@ -1,4 +1,5 @@
-import WebAppCard from "./WebAppCard";
+import { WebAppCard } from "../cards";
+
 export default function () {
   return (
     <div className="w-full h-full px-10 py-5 bg-white border shadow-lg  border-green-500 text-green-500 rounded-3xl mt-15">
@@ -8,23 +9,27 @@ export default function () {
           <WebAppCard
             title="Adzu Chat  "
             image="/assets/adzuChat1.png"
+            description="Anonymous Chat Web Application for Ateneans"
             date="Febuary 2025"
             tags={["python", "javascript", "react"]}
           />
           <WebAppCard
             title="Boost Buddy"
             image="/assets/boostBuddy1.png"
+            description="Duo-Finding Web App for Competitive Gamers"
             date="September 2025"
             tags={["php"]}
           />
           <WebAppCard
             title="Ateneo Forum"
             image="/assets/ateneoForum2.png"
+            description="An Online Forum with Strict Anonymity via Alias"
             date="In progress"
             tags={["php", "mysql"]}
           />
           <WebAppCard
             title="Formation System"
+            description="Faculty and Formation Management System"
             image="/assets/faculty1.png"
             date="In progress"
             tags={["nextjs", "javascript", "typescript"]}

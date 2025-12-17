@@ -1,6 +1,4 @@
-import PackagesCard from "../components/PackagesCard";
-import ProjectCard from "../components/ProjectCard";
-import WebApp from "../components/WebApp";
+import { PackagesCard, ProjectCard, WebApp, Footer } from "../components";
 
 export default function Project() {
   return (
@@ -20,6 +18,7 @@ export default function Project() {
           <WebApp />
         </div>
       </div>
+      <Footer></Footer>
     </main>
   );
 }

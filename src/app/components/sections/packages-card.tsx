@@ -1,4 +1,4 @@
-import OpenCard from "./OpenCard";
+import { OpenCard } from "../cards";
 
 export default function () {
   return (

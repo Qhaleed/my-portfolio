@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Poppins } from "next/font/google";
-import Navbar from "./components/Navbar";
-
+import Navbar from "./components/layout/navbar";
+import Footer from "./components/layout/footer";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"], // choose weights you need
