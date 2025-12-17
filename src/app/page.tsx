@@ -41,7 +41,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="flex flex-row gap-10 sm:gap-4 lg:gap-6 mt-12 sm:mt-16 lg:mt-10 lg:mb-10 justify-center items-center">
+        <div className="flex flex-row gap-10 sm:gap-4 lg:gap-6 mt-4 mb-5 sm:mt-16 lg:mt-10 lg:mb-10 justify-center items-center">
           <Card
             label="About-Me"
             rotate="left"
@@ -50,7 +50,7 @@ export default function Home() {
             darkSrc="redd-black-res.png"
           ></Card>
           <Card
-            label="Projescts"
+            label="Projects"
             rotate="right"
             href="project"
             src="LOGO-1.jpg"
