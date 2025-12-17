@@ -1,7 +1,7 @@
 "use client";
 import { Card, Footer, DynamicText } from "./components";
 import { useEffect, useState } from "react";
-
+import { CompanyCard } from "./components/cards";
 export default function Home() {
   const [isWiggling, setIsWiggling] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <main className="w-full max-h-screen flex justify-center px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-4xl text-center flex justify-start flex-col gap-5">
-        <div className="mt-20 sm:mt-10">
+        <div className="mt-20 sm:mt-5">
           <h1
             className={`text-7xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2 text-gray-700 dark:text-gray-200 transition-transform duration-100 ${
               isWiggling ? "animate-wiggle" : ""
@@ -68,6 +68,14 @@ export default function Home() {
             "",
           ]}
         />
+        <div className="flex justify-around">
+          <CompanyCard
+            position="Co-founder"
+            company="RTX softwares"
+            link="https://rtx-softwares.vercel.app/"
+          />
+          <CompanyCard position="Founder" company="DigiKumo" />
+        </div>
         <Footer></Footer>
       </div>
     </main>
