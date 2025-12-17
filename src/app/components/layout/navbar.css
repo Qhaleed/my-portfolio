@@ -361,7 +361,7 @@
 }
 
 .nav-tooltip::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -5px;
   left: 50%;
