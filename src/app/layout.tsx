@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import Navbar from "./components/layout/navbar";
-import Footer from "./components/layout/footer";
+import LightDarkMode from "./components/ui/light-dark-mode";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"], // choose weights you need
@@ -41,6 +41,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <div className="fixed top-4 right-4 z-50">
+          <LightDarkMode />
+        </div>
         <Navbar></Navbar>
         {children}
       </body>
