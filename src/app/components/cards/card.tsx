@@ -51,8 +51,8 @@ export default function ({ label, rotate, href, src, darkSrc }: CardProps) {
   return (
     <main
       className={`w-36 sm:w-48 md:w-56 lg:w-80 min-h-10 rounded-2xl sm:rounded-3xl mx-1 sm:mx-2 lg:mx-10
-     bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 shadow-lg hover:shadow-lg transition duration-300 
-     
+     bg-white border border-gray-300 dark:border-gray-600 shadow-lg hover:shadow-lg transition-all duration-500
+     ${isTransitioning ? "opacity-0" : "opacity-100"}
         ${
           rotate === "left"
             ? "-rotate-10 sm:-rotate-3 lg:-rotate-5 hover:-rotate-8  active:-rotate-8"
@@ -73,9 +73,7 @@ export default function ({ label, rotate, href, src, darkSrc }: CardProps) {
             alt="Profile picture"
             fill
             sizes="(max-width: 640px) 112px, (max-width: 768px) 128px, (max-width: 1024px) 160px, 208px"
-            className={`rounded object-cover transition-opacity duration-500 ${
-              isTransitioning ? "opacity-0" : "opacity-100"
-            }`}
+            className="rounded object-cover"
           />
         </div>
 

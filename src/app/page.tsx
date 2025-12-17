@@ -51,7 +51,7 @@ export default function Home() {
             rotate="left"
             href="about"
             src="white-res.png"
-            darkSrc="red-res.png"
+            darkSrc="white-res.png"
           ></Card>
           <Card
             label="Projescts"
