@@ -1,10 +1,16 @@
 .dynamic-text-card {
   --bg-color: #111;
   background-color: var(--bg-color);
-  padding: 1rem 2rem;
+  padding: 0.5rem 1rem;
   border-radius: 1.25rem;
   border: 2px solid transparent;
   transition: border-color 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  .dynamic-text-card {
+    padding: 1rem 2rem;
+  }
 }
 
 [data-theme="dark"] .dynamic-text-card {
@@ -15,15 +21,24 @@
   color: rgb(124, 124, 124);
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-  font-size: 25px;
+  font-size: 14px;
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
-  height: 40px;
-  padding: 10px 10px;
+  height: 22px;
+  padding: 6px 6px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   border-radius: 8px;
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .dynamic-text-loader {
+    font-size: 25px;
+    height: 40px;
+    padding: 10px 10px;
+  }
 }
 
 .dynamic-text-words {
