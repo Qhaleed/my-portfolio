@@ -73,9 +73,9 @@ export default function OpenCard({
   };
 
   return (
-    <div className="flex flex-col text-sm justify-between px-3 py-3 rounded-xl w-full border border-gray-200 hover:border-violet-500 transition duration-300 h-full">
+    <div className="flex flex-col text-sm justify-between px-3 py-3 rounded-xl w-full border border-gray-200 dark:border-gray-700 hover:border-violet-500 dark:hover:border-violet-400 transition duration-300 h-full bg-white dark:bg-gray-800">
       <div className="flex flex-row justify-between text-sm">
-        <p className="">{title}</p>
+        <p className="text-gray-800 dark:text-gray-200">{title}</p>
         <div className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 flex items-center justify-center rounded-full bg-blue-600 ring-2 ring-gray-300 dark:ring-gray-500 hover:bg-blue-700 transition-colors duration-200">
           <a href={githubLink}>
             <i className="fa-brands fa-github text-white text-sm sm:text-lg lg:text-xl"></i>
@@ -96,7 +96,7 @@ export default function OpenCard({
               </span>
             ))}
         </div>
-        <h3>{description}</h3>
+        <h3 className="text-gray-600 dark:text-gray-400">{description}</h3>
       </div>
     </div>
   );

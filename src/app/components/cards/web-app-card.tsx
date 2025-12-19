@@ -83,7 +83,7 @@ export default function ({ title, date, image, tags, description }: CardProps) {
 
   return (
     <>
-      <div className="w-full rounded-2xl overflow-hidden bg-white border border-gray-200 shadow-sm hover:shadow-md transition duration-300 hover:border-green-500">
+      <div className="w-full rounded-2xl overflow-hidden bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition duration-300 hover:border-green-500 dark:hover:border-green-400">
         <div
           className="block overflow-hidden rounded-t-lg cursor-pointer"
           onClick={openFullscreen}
@@ -96,15 +96,15 @@ export default function ({ title, date, image, tags, description }: CardProps) {
         </div>
         <div className="p-3">
           <a>
-            <h5 className="mb-1 text-sm font-semibold tracking-tight text-gray-900 line-clamp-1">
+            <h5 className="mb-1 text-sm font-semibold tracking-tight text-gray-900 dark:text-gray-100 line-clamp-1">
               {`${title}`}
             </h5>
           </a>
           <a>
-            <h5 className="mb-2 text-xs font-normal text-gray-600">
+            <h5 className="mb-2 text-xs font-normal text-gray-600 dark:text-gray-400">
               {`${date}`}
             </h5>
-            <h5 className="mb-2 text-xs font-normal text-gray-600">
+            <h5 className="mb-2 text-xs font-normal text-gray-600 dark:text-gray-400">
               {`${description}`}
             </h5>
           </a>

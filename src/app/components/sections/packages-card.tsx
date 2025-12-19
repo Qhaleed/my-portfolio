@@ -2,9 +2,9 @@ import { OpenCard } from "../cards";
 
 export default function () {
   return (
-    <div className="w-full h-full px-10 py-10 lg:px-10 lg:py-5 bg-white border shadow-lg border-violet-  lg:border-violet-500 rounded-3xl mt-15">
+    <div className="w-full h-full px-10 py-10 lg:px-10 lg:py-5 bg-white dark:bg-gray-900 border shadow-lg border-violet-500 dark:border-violet-400 rounded-3xl mt-15">
       <div className="flex flex-col text-start gap-4">
-        <h1 className="text-violet-500">Open Source </h1>
+        <h1 className="text-violet-500 dark:text-violet-400">Open Source </h1>
         <div className=" grid grid-cols-1 lg:grid-cols-2 gap-4 ">
           <OpenCard
             title="Anonymous Communication System"

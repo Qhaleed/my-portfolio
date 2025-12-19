@@ -5,10 +5,10 @@ export default function () {
     <footer className="w-full mt-16 sm:mt-20 lg:mt-10">
       <Socials />
 
-      <div className="text-black dark:text-gray-300 flex justify-center mt-3 sm:mt-4 lg:mt-5">
+      <div className="text-gray-700 dark:text-gray-300 flex justify-center mt-3 sm:mt-4 lg:mt-5">
         <h3 className="text-sm sm:text-base lg:text-lg">
           @ 2025 Resly Kadiri.{" "}
-          <span className="text-sm text-gray-400">
+          <span className="text-sm text-gray-500 dark:text-gray-500">
             --this portfolio is best on mobile
           </span>
         </h3>

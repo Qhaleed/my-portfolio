@@ -19,20 +19,20 @@ export default function About() {
     <main className="w-full h-full max-h-screen">
       <div className="flex flex-row text-center justify-center align-middle mt-15 px-10 lg:p-0">
         <div className="max-w-2xl text-start gap-5 flex flex-col">
-          <h1 className="text-3xl font-bold leading-loose">Hi, I'm Res</h1>
-          <p className="text-gray-600 font-light">
+          <h1 className="text-3xl font-bold leading-loose text-gray-800 dark:text-gray-100">Hi, I'm Res</h1>
+          <p className="text-gray-600 dark:text-gray-400 font-light">
             I'm a full stack developer with over 3 years of programming
             experience (web development and mobile development). I usually grind
             random projects, listen to Matan's podcast while programming, and
             explore random technologies especially trending ones (According to
             Fireship).
           </p>
-          <p className="text-gray-600 font-light">
+          <p className="text-gray-600 dark:text-gray-400 font-light">
             I am someone who writes everything programming, its documentations,
             and other relevant stuffs in my Obsidian Vault. Yes everything.
           </p>
 
-          <p className="text-gray-600 font-light mb-10">
+          <p className="text-gray-600 dark:text-gray-400 font-light mb-10">
             Reach me on:{" "}
             <span
               onClick={copyToClipboard}
@@ -48,17 +48,17 @@ export default function About() {
             </span>
           </p>
 
-          <h1 className="text-xl font-semibold leading-loose ">
+          <h1 className="text-xl font-semibold leading-loose text-gray-800 dark:text-gray-100">
             Languages/tools I take interest In
           </h1>
-          <p className="text-gray-600 font-light">
+          <p className="text-gray-600 dark:text-gray-400 font-light">
             My primary stack is anything javascript (also Tailwind, c++, Laravel
             & rust) currently experimenting switch to (Laravel & angular). Over
             time, I've dealt with different technology stacks/programming
             langauges; most times out of curiosity and other times its either
             school or work(agency).
           </p>
-          <h1 className="text-xl font-semibold leading-loose">
+          <h1 className="text-xl font-semibold leading-loose text-gray-800 dark:text-gray-100">
             Skills and Technologies
           </h1>
           <Skill />
