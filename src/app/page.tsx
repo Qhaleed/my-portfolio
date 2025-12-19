@@ -48,12 +48,14 @@ export default function Home() {
             href="about"
             src="white-res.png"
             darkSrc="redd-black-res.png"
+            backSrc="blue-res.png"
           ></Card>
           <Card
             label="Projects"
             rotate="right"
             href="project"
             src="LOGO-1.jpg"
+            backSrc="mini.png"
           ></Card>
         </div>
 
